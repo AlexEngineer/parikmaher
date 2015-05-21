@@ -20,10 +20,10 @@ $(document).ready(function(){
   		});
 
 	$("#phone").mask("+7 ( 999 ) 999 - 99 - 99");
-	$(".left-nav").delay(1000).animate({
-		width: "30%"
-	}, 300);
-	$('.left-nav .nav').delay(1000).animate({opacity: '1'}, 300);
+	//$(".left-nav").delay(1000).animate({
+	//	width: "30%"
+	//}, 300);
+	//$('.left-nav .nav').delay(1000).animate({opacity: '1'}, 300);
 
 	$('.modal-show').click(function (event) {
 		event.preventDefault();
@@ -147,11 +147,12 @@ var menuToggler = (function () {
 		init: function() {
 			$('body').on('click', '.menu-toggle-btn', function(){
 				console.log($('.left-nav').width());
-				if ($('.left-nav').width() >= 499) {
+				if ($('.left-nav').width() >= 60) {
 					$('.left-nav').animate({width: "55px"}, 100);
-					$('.left-nav .nav').animate({opacity: '0'}, 300);
+                    $('.left-nav .nav').animate({opacity: '0'}, 300);
 				} else {
-					$('.left-nav').animate({width: "30%"}, 100);
+					$('.left-nav').animate({width: "20%"}, 100);
+                    $('.left-nav').animate({opacity: '0.9'}, 100);
 					$('.left-nav .nav').animate({opacity: '1'}, 300);
 				}
 				return false;
