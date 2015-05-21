@@ -1,0 +1,17 @@
+$(document).ready(function(){function setPeople(currentKey,className){var ids=[],pictures=[];var offset=3;if($('.shortstudent-slide a.feeds__speaker').length==5){offset=2;}
+var needle=currentKey-offset,undefs=0;for(var i=needle;i<currentKey;i++){if(typeof pics[i]=='undefined'){undefs++;var key=pics.length-undefs;ids.push(key);pictures.push(pics[key]);}else{ids.push(i);pictures.push(pics[i]);}}
+if(currentKey==0){ids.reverse();pictures.reverse();}
+if(currentKey==1){var tmpId=ids[0],tmpPic=pictures[0];ids[0]=ids[1];ids[1]=tmpId;pictures[0]=pictures[1];pictures[1]=tmpPic;}
+ids.push(currentKey);pictures.push(pics[currentKey]);if(className!='none'){$('#people').addClass('loading');$('.feeds_text p:visible, .shortstudent-speech p:visible').fadeOut(500,function(){$('#quote_'+currentKey).fadeIn(500);$('#people').removeClass('loading');});}
+$('#people_social_vk').hide();$('#people_social_fb').hide();$('#people_social_tw').hide();$('#people_social_gp').hide();$('#people_name span').html(people[currentKey]);$('#people_name').next('div').html((descr[currentKey]!=undefined)?descr[currentKey]:''+' '+(company[currentKey]!=undefined)?company[currentKey]:'');if(vk[currentKey]!=''){$('#people_social_vk').attr('href',vk[currentKey]);$('#people_social_vk').show();}
+if(facebook[currentKey]!=''){$('#people_social_fb').attr('href',facebook[currentKey]);$('#people_social_fb').show();}
+if(twitter[currentKey]!=''){$('#people_social_tw').attr('href',twitter[currentKey]);$('#people_social_tw').show();}
+if(twitter[currentKey]!=''){$('#people_social_gp').attr('href',gp[currentKey]);$('#people_social_gp').show();}
+if($('#feeds_quote_about').length){$('#feeds_quote_about').html(course[currentKey]);}
+var needle=currentKey+offset,undefs=0;for(var i=currentKey+1;i<=needle;i++){if(typeof pics[i]=='undefined'){var key=0+undefs;undefs++;ids.push(key);pictures.push(pics[key]);}else{ids.push(i);pictures.push(pics[i]);}}
+$('.feeds__speaker').each(function(index){$(this).attr('id',ids[index]);if(className!='none'){if(className=='prev'){$(this).html(pictures[index]).animate("slide",{direction:"left"},350);}else if(className=='next'){$(this).html(pictures[index]).animate("slide",{direction:"right"},350);}}else{$(this).html(pictures[index]);}});}
+$(document).ready(function(){$('#people_nav>.prev, #people_nav>.next, .feeds__speaker').click(function(){if($('#people').hasClass('loading')){return false;}
+var maxIdx=14;if($('.shortstudent-slide a.feeds__speaker').length==5){maxIdx=10;}
+var className=$(this).attr('class');className=className.replace('fa ','');className=className.replace('fa-angle-double-left','prev').replace('fa-angle-double-right','next').replace(' ','');if(className=='prev'){var prevKey=$('#people').find('.active').prev().attr('id').replace(/^\D+/g,'');setPeople(parseInt(prevKey),className);}else if(className=='next'){var nextKey=$('#people').find('.active').next().attr('id').replace(/^\D+/g,'');setPeople(parseInt(nextKey),className);}else if(className=='feeds__speaker'){var needKey=$(this).attr('id').replace(/^\D+/g,'');if($('.feeds_text p:visible').length>0){var currKey=$('.feeds_text p:visible').attr('id').replace(/^\D+/g,'');}else{var currKey=$('.shortstudent-speech p:visible').attr('id').replace(/^\D+/g,'');}
+if(currKey<needKey||(currKey==maxIdx&&needKey==0)){className='next';}else if(currKey>needKey||(currKey==0&&needKey==maxIdx)){className='prev';}
+setPeople(parseInt(needKey),className);}});});});

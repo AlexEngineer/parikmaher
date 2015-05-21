@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/*
+* Самые легкие и быстрые вкладки
+* минимум кода, максимум функционала
+*
+* автор: @dobrovoi dbmast.ru
+*/ 
+
+/* Стили для табов-вкладок */
+.tabs_block {
+    width: 950px;
+    margin: 0 auto;
+}
+.tabs_block:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+/* панель навигации вкладок */
+.tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float:left;
+}
+/* список вкладок */
+.tabs li {
+    text-align:center;
+    float:left;
+    margin-right:1px;
+    margin-left: 37px;
+    cursor:pointer;
+    color:#fff;
+
+}
+.tabs li img{
+    border:1px solid rgba(0,0,0,.0);
+}
+.tabs li.avatar1{
+
+}
+/* активная вкладка */
+.tabs li.active {
+    
+    color:#4F5559; 
+     
+}
+.tabs li.active img{
+    -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: none;
+
+  border:1px solid #fff;
+}
+/* блоки вкладок с содержанием */
+.box {
+    width:96%;
+    width: 940px;
+    height: 450px;
+    display:none;
+    text-align: left;
+    float: left;
+}
+/* параграф внутри вкладок */
+.box p {
+    margin-bottom: 15px;
+}
+/* активный блок при загрузке */
+.visible, .open_tab {
+    display: block;
+}
+/* картинки внутри вкладок */
+.box img {
+   
+    height: auto;
+}
+/* картинки слева */
+.pl-left {
+    float:left;
+    margin:5px 15px 5px 0;
+}
+/* картинки справа */
+.pl-right {
+    float:right;
+    margin:5px 0 5px 15px;
+}
+/* убираем выравнивание на маленьких экранах */
+@media (max-width: 300px) {
+  .tabs, .tabs li {
+   float: none;
+  }
+}
