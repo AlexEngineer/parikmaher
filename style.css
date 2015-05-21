@@ -1150,3 +1150,37 @@ body .facts-main .facts .facts-block-main .fact:first-child, .portfolio-main .po
 .text-center {
     text-align: center !important;
 }
+
+.slider .owl-item{
+    opacity: 0;
+    transition: opacity 0.1s;
+    -webkit-transition:  opacity 0.1s;
+    -moz-transition:     opacity 0.1s;
+    -o-transition:       opacity 0.1s;
+}
+
+.slider .owl-item.active{
+    opacity: 1;
+    transition: opacity 0.9s;
+    -webkit-transition:  opacity 0.9s;
+    -moz-transition:     opacity 0.9s;
+    -o-transition:       opacity 0.9s;
+
+}
+
+.cosmetic-slider .owl-item{
+    opacity: 0;
+    transition: opacity 0.1s;
+    -webkit-transition:  opacity 0.1s;
+    -moz-transition:     opacity 0.1s;
+    -o-transition:       opacity 0.1s;
+}
+
+.cosmetic-slider .owl-item.active{
+    opacity: 1;
+    transition: opacity 0.9s;
+    -webkit-transition:  opacity 0.9s;
+    -moz-transition:     opacity 0.9s;
+    -o-transition:       opacity 0.9s;
+
+}
